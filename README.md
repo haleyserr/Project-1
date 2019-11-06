@@ -2,26 +2,41 @@
 Project 1 Team # 1
 # Name of Project
 
+TASK (Texas Analysis of Skills for Kids)
+
 > [Live Site](Put the deployed link here once you have it)
 
 ## Project Summary
 
-> Describe the problem or mission statement of the project in 2 - 3 sentences.
+> No one likes school! The goal of TASK is to make learning fun through interactive games and provide customized education using data analysis.  
+
+Students play games geared towards math, history, and science.
+
+Teachers are able to view their class roster and students results in a sleek dashboard. 
 
 ## Developers
 
-- Developer 1: Role
-  - Portfolio
-  - Github
-  - LinkedIn
-- Developer 2: Role
-  - Portfolio
-  - Github
-  - LinkedIn
-- Developer 3: Role
-  - Portfolio
-  - Github
-  - LinkedIn
+- Developer 1: Daniel: Role
+
+  Game A: Math
+  2nd HTML/CSS/Bootstrap
+  Database/Ajax
+  Libraries/Authentication
+  
+- Developer 2: Nathan: Role
+
+  Game B: History
+  JQuery
+  2nd Database
+  2nd Dashboard
+  
+- Developer 3: Haley: Role
+
+  Game C: Science
+  HTML/CSS/Bootstrap
+  Dashboard
+  3rd Database
+ 
 
 ## Animated Gifs/Pictures of App
 
@@ -29,23 +44,24 @@ Project 1 Team # 1
 
 ## Tech Stack
 
-- What languages is it written with
-- What libraries are used
-- Update at the end of the project
+- HTML, Bootstrap, CSS, JQuery, JS
+- Charty Charts
+
 
 ## APIs
 
-- List the two apis
-- Update it has the project evolves
-- make sure its accurate at the end
+Giphy
+Google Classroom
 
 ## MVP
 
-- List the Must Have Features
+- FUN Games
+- Sleek UI
+- Database emphasis
 
 ## Stretch Goals
 
-- What you will try to accomplish after MVP
+- Extra Resources, another subject game
 
 ## Future Development
 
