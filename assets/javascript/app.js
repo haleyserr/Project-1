@@ -19,11 +19,41 @@ const database  = firebase.database();
 
 
 
+// THIS IS A TEMPLATE FOR AN API CALL. IE: NATIONAL ARCHIVES!
+function exampleCall(topicInput){
+
+    let search = topicInput;
+
+    const queryURL = `https://catalog.archives.gov/api/v1/?${search}`;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        console.log(response);
+        for(let i = 0; i < 10; i++){
+
+        //     const imgURL = response.data[i].images.fixed_height_still.url;
+        //     const image = $("<img>");
+        //     image.attr("src", imgURL);
+        //     image.attr("alt", i);
+        //     image.attr("data-state", "still");
+        //     image.attr("data-still", imgURL);
+        //     image.attr("data-animate", response.data[i].images.fixed_height.url);
+        //     // image.attr("data-animate", `${response.data[i].embed_url} + `);
 
 
 
+        
 
-console.log("APP.JS WORKS");
+        }
+        
+        
+
+    });
+    
+}
+
 
 
 
