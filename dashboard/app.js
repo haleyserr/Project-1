@@ -49,9 +49,16 @@ function start(){
 
 }
 
+
+
 function student(){
     console.log("Student Window Active");
+    $("#start").hide()
 
+    
+    $("#user").attr("placeholder", "Enter Student Username");
+    $("#pass").attr("placeholder", "Enter Student Password");
+    $(".authen").show();
 
 
 }
@@ -59,7 +66,14 @@ function student(){
 
 function teacher(){
     console.log("Teacher Window Active");
+    $("#start").hide()
+
+
+    $("#user").attr("placeholder", "Enter Teacher Username");
+    $("#pass").attr("placeholder", "Enter Teacher Password");
+    $(".authen").show();
     
+
 
 
 }
