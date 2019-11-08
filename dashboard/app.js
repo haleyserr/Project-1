@@ -16,3 +16,71 @@ const database = firebase.database();
 
 
 
+function start(){
+
+    $(".btn").on("click", function(){
+        
+
+        let buttonVal = $(this).attr("value");
+
+
+
+
+
+        if (buttonVal === "student"){
+            console.log("STUDENT");
+
+            //calls the student page
+            student();
+        }
+        else{
+            console.log("TEACHER");
+            
+            //calls the teacher page
+            teacher();
+        }
+
+
+
+    }); 
+
+
+
+
+}
+
+function student(){
+    console.log("Student Window Active");
+
+
+
+}
+
+
+function teacher(){
+    console.log("Teacher Window Active");
+    
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+start();
