@@ -57,6 +57,22 @@ const questions = [{
 },
 ];
 
-function pagePrep (){
+function quiz (){
+    correct = 0;
+    for (let i = 0; i<questions.length; i++){
+        $("#questionNumber").text("Question "+(i+1));
+        $("#questionText").text(questions[i].question);
 
-}
+
+
+        $(".primary").on("click", function (event){
+            i++;
+        });
+
+
+        
+    };
+};
+
+quiz();
+
