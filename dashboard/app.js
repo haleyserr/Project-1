@@ -119,33 +119,37 @@ function teacher(){
         const auth = firebase.auth();
         
 
-        const gauntlet = auth.signInWithEmailAndPassword(email, pass);
-
-
-        //TODO: ADD A TOAST NOTIFICATION HERE
-        gauntlet.catch(function(){
-            if (this){
+        const gauntlet = auth.signInWithEmailAndPassword(email, pass).catch(function(error){
+            console.log(error);
+            if (error){
                 console.log("INCORRECT PASSWORD");
                 
+                $(".toast").toast('show');
+                setTimeout(function() {
+                    $(".toast").hide();
+                }, 1500);
+
             }
             
         });
 
 
 
-        //TODO: GET THIS THING TO WORK
+        // TODO: GET THIS THING TO WORK
         
-        // const user = firebase.auth().currentUser;
-        // firebase.auth().onAuthStateChanged(function(user) {
-            
-        //     if (user) {
-        //         console.log("USER FOUND");
-        //     } 
-        //     else if(!user){
-        //         console.log("USER NOT FOUND");
-        //     }
+        //const user = firebase.auth().currentUser;
+        firebase.auth().onAuthStateChanged(function(user) {
 
-        //   });
+            console.log(user);
+            
+            if (user) {
+                console.log("USER FOUND");
+            } 
+            else if(!user){
+                console.log("USER NOT FOUND");
+            }
+
+          });
         
 
     });
@@ -160,8 +164,23 @@ function authenticate(){
 
 
 
+
+
+
+
+
 }
 
+//Auto signs out on refresh
+function signOut() {
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+      }).catch(function(error) {
+        // An error happened.
+      });
+}
+
+//signOut();
 
 
 
