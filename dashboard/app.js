@@ -38,72 +38,20 @@ const auth = firebase.auth();
 
 function start(){
 
-    $(".btn").on("click", function(){
-        
-
-        let buttonVal = $(this).attr("value");
-
-
-
-
-
-        if (buttonVal === "student"){
-            console.log("STUDENT");
-
-            //calls the student page
-            student();
-        }
-        else if (buttonVal === "teacher"){
-            console.log("TEACHER");
-            
-            //calls the teacher page
-            teacher();
-        }
-
-
-
-    }); 
-
-
-
-
-}
-
-
-
-function student(){
-    console.log("STUDENT WINDOW ACTIVE");
-    $("#start").hide()
-
-
-    $("#email").attr("placeholder", "Enter Student Email");
-    $("#pass").attr("placeholder", "Enter Student Password");
     $(".authen").show();
-    
-    $("#login").on("click", function(){
-        console.log("LOGIN TOKEN PASSED");
-        
-        //TODO: INPUT CHECK FOR EMAIL
-        const email = $("#email").val();
-        const pass = $("#pass").val();
-        const auth = firebase.auth();
+    tokenLogin();
 
-        const gauntlet = auth.signInWithEmailAndPassword(email, pass);
-
-        gauntlet.catch(function(){
-            console.log("ERROR");
-        });
-        
-
-    });
 
 
 }
 
 
-function teacher(){
+
+
+
+function tokenLogin(){
     console.log("TEACHER WINDOW ACTIVE");
-    $("#start").hide()
+    
 
 
     $("#Email").attr("placeholder", "Enter Teacher Email");
@@ -180,7 +128,7 @@ function signOut() {
       });
 }
 
-//signOut();
+ signOut();
 
 
 
