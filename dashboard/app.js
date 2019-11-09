@@ -51,6 +51,11 @@ function start(){
 
 function student(){
     console.log("Student Window Active");
+    
+
+
+
+
 
 
 
@@ -60,6 +65,11 @@ function student(){
 function teacher(){
     console.log("Teacher Window Active");
     
+
+
+
+
+
 
 
 }
