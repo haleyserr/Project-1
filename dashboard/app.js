@@ -126,7 +126,7 @@ function teacher(){
         gauntlet.catch(function(){
             if (this){
                 console.log("INCORRECT PASSWORD");
-
+                
             }
             
         });
