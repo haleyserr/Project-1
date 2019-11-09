@@ -16,6 +16,26 @@ const database = firebase.database();
 
 
 
+//These constants get the values from the corresponding divs. 
+// his will be inputted in the student() and teacher() functions directly below.
+const email = $("#email").val()
+const pass = $("#pass").val();
+const login = $("#login").val();
+const auth = firebase.auth();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function start(){
 
     $(".btn").on("click", function(){
@@ -33,7 +53,7 @@ function start(){
             //calls the student page
             student();
         }
-        else{
+        else if (buttonVal === "teacher"){
             console.log("TEACHER");
             
             //calls the teacher page
@@ -49,22 +69,95 @@ function start(){
 
 }
 
+
+
 function student(){
-    console.log("Student Window Active");
+    console.log("STUDENT WINDOW ACTIVE");
+    $("#start").hide()
+
+
+    $("#email").attr("placeholder", "Enter Student Email");
+    $("#pass").attr("placeholder", "Enter Student Password");
+    $(".authen").show();
     
+    $("#login").on("click", function(){
+        console.log("LOGIN TOKEN PASSED");
+        
+        //TODO: INPUT CHECK FOR EMAIL
+        const email = $("#email").val();
+        const pass = $("#pass").val();
+        const auth = firebase.auth();
 
+        const gauntlet = auth.signInWithEmailAndPassword(email, pass);
 
+        gauntlet.catch(function(){
+            console.log("ERROR");
+        });
+        
 
-
-
+    });
 
 
 }
 
 
 function teacher(){
-    console.log("Teacher Window Active");
+    console.log("TEACHER WINDOW ACTIVE");
+    $("#start").hide()
+
+
+    $("#Email").attr("placeholder", "Enter Teacher Email");
+    $("#pass").attr("placeholder", "Enter Teacher Password");
+    $(".authen").show();
     
+    $("#login").on("click", function(){
+        console.log("LOGIN TOKEN PASSED");
+
+        //TODO: INPUT CHECK FOR EMAIL
+        const email = $("#email").val();
+        const pass = $("#pass").val();
+        const auth = firebase.auth();
+        
+
+        const gauntlet = auth.signInWithEmailAndPassword(email, pass);
+
+
+        //TODO: ADD A TOAST NOTIFICATION HERE
+        gauntlet.catch(function(){
+            if (this){
+                console.log("INCORRECT PASSWORD");
+
+            }
+            
+        });
+
+
+
+        //TODO: GET THIS THING TO WORK
+        
+        // const user = firebase.auth().currentUser;
+        // firebase.auth().onAuthStateChanged(function(user) {
+            
+        //     if (user) {
+        //         console.log("USER FOUND");
+        //     } 
+        //     else if(!user){
+        //         console.log("USER NOT FOUND");
+        //     }
+
+        //   });
+        
+
+    });
+
+
+}
+
+
+function authenticate(){
+    console.log("AUTHENTICATION PROCESS ACTIVATED");
+
+
 
 
 
@@ -73,7 +166,6 @@ function teacher(){
 
 
 }
-
 
 
 
@@ -94,3 +186,7 @@ function teacher(){
 
 
 start();
+
+
+
+
