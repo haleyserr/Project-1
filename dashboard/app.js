@@ -27,11 +27,34 @@ const auth = firebase.auth();
 
 
 
+const uidT = "6fdRBjubuiMx5VtwlJJGFdwTsZB3";
 
+//The UIDs for both students and teachers
+const permit = [
+    {
+        classroom: [
+            {
+                name: "Joe Shmoe",
+                student: "fmXkrIa6xeTuUEpEuVGXTRuEYNL2"
+            },
+            {
+                name: "Shanaenae",
+                student: "7tiXwZTvomVBmdXwksC82cr1dRk2"
+            } 
+        ]
+    },
+    {
+        faculty: [
+            {
+                name: "Mizz Cheeks",
+                teacher: "6fdRBjubuiMx5VtwlJJGFdwTsZB3" 
+            }
+        ]
 
+    }
+    
 
-
-
+];
 
 
 
@@ -83,15 +106,16 @@ function tokenLogin(){
 
 
 
-        // TODO: GET THIS THING TO WORK
         
-        //const user = firebase.auth().currentUser;
         firebase.auth().onAuthStateChanged(function(user) {
 
             console.log(user);
             
             if (user) {
+                console.log(user.uid);
+
                 console.log("USER FOUND");
+                authenticate();
             } 
             else if(!user){
                 console.log("USER NOT FOUND");
@@ -108,6 +132,19 @@ function tokenLogin(){
 
 function authenticate(){
     console.log("AUTHENTICATION PROCESS ACTIVATED");
+    $(".authen").hide();
+    
+    //IF THE UID MATCHES THE TEACHER, IT GOES TO DASHBOARD. IF IT DOESN'T MATCH A TEACHER UID, THEN OFF TO THE CHOICE SCREEN WITH YOU
+    if(uidT === permit[1].faculty[0].teacher ){
+        console.log(permit[1].faculty[0].teacher);
+        console.log("WELCOME TEACHER");
+        //dashboard();
+    }
+    else{
+        //choiceScreen();
+    }
+
+
 
 
 
