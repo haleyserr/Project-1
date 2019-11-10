@@ -17,7 +17,6 @@ const database = firebase.database();
 
 
 //These constants get the values from the corresponding divs. 
-// his will be inputted in the student() and teacher() functions directly below.
 const email = $("#email").val()
 const pass = $("#pass").val();
 const login = $("#login").val();
@@ -34,7 +33,7 @@ const permit = [
     {
         classroom: [
             {
-                name: "Joe Shmoe",
+                name: "ZIM ZIM SALA BIM",
                 student: "fmXkrIa6xeTuUEpEuVGXTRuEYNL2"
             },
             {
@@ -137,26 +136,34 @@ function authenticate(){
     //IF THE UID MATCHES THE TEACHER, IT GOES TO DASHBOARD. IF IT DOESN'T MATCH A TEACHER UID, THEN OFF TO THE CHOICE SCREEN WITH YOU
     if(uidT === permit[1].faculty[0].teacher ){
         console.log(permit[1].faculty[0].teacher);
-        console.log("WELCOME TEACHER");
-        //dashboard();
+        console.log(`Welcome ${permit[1].faculty[0].name}`);
+
+
+        //calls the dashboard.html
+        dashboard(permit[1].faculty[0].name);
     }
     else{
-        //choiceScreen();
+
+        for(let i = 0; i < permit[0].classroom[i].length; i++){
+            if (permit[0].classroom[i].student === "null")
+
+
+
+        }
+        
+        choiceScreen();
     }
-
-
-
-
-
-
-
-
 
 
 
 }
 
-//Auto signs out on refresh
+
+
+
+
+
+//AUTO SIGNS OUT ON REFRESH
 function signOut() {
     firebase.auth().signOut().then(function() {
         // Sign-out successful.
@@ -165,7 +172,19 @@ function signOut() {
       });
 }
 
- signOut();
+
+
+
+
+ 
+
+function dashboard(name){
+    //syntax for the dashboard.html call
+    window.location = "./dashboard/index.html";
+}
+function choiceScreen(){
+
+}
 
 
 
@@ -184,6 +203,11 @@ function signOut() {
 
 
 
+
+
+
+
+signOut();
 start();
 
 
