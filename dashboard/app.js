@@ -27,6 +27,7 @@ const auth = firebase.auth();
 
 
 const uidT = "6fdRBjubuiMx5VtwlJJGFdwTsZB3";
+let uid = "";
 
 //The UIDs for both students and teachers
 const permit = [
@@ -34,11 +35,11 @@ const permit = [
         classroom: [
             {
                 name: "ZIM ZIM SALA BIM",
-                student: "fmXkrIa6xeTuUEpEuVGXTRuEYNL2"
+                student: "XW3lYLKJBWbb6YvXqvFkR22M1BP2"
             },
             {
                 name: "Shanaenae",
-                student: "7tiXwZTvomVBmdXwksC82cr1dRk2"
+                student: "OBFeNd3ZEGYHerkFipoOMmjkYJ73"
             } 
         ]
     },
@@ -72,12 +73,12 @@ function start(){
 
 
 function tokenLogin(){
-    console.log("TEACHER WINDOW ACTIVE");
+    console.log("AWAITING LOGIN TEKON");
     
 
 
-    $("#Email").attr("placeholder", "Enter Teacher Email");
-    $("#pass").attr("placeholder", "Enter Teacher Password");
+    $("#email").attr("placeholder", "Enter Email");
+    $("#pass").attr("placeholder", "Enter Password");
     $(".authen").show();
     
     $("#login").on("click", function(){
@@ -112,6 +113,7 @@ function tokenLogin(){
             
             if (user) {
                 console.log(user.uid);
+                uid = user.uid;
 
                 console.log("USER FOUND");
                 authenticate();
@@ -134,25 +136,27 @@ function authenticate(){
     $(".authen").hide();
     
     //IF THE UID MATCHES THE TEACHER, IT GOES TO DASHBOARD. IF IT DOESN'T MATCH A TEACHER UID, THEN OFF TO THE CHOICE SCREEN WITH YOU
-    if(uidT === permit[1].faculty[0].teacher ){
+    if(uid === permit[1].faculty[0].teacher ){
         console.log(permit[1].faculty[0].teacher);
         console.log(`Welcome ${permit[1].faculty[0].name}`);
 
 
         //calls the dashboard.html
-        dashboard(permit[1].faculty[0].name);
+        dashboard(permit[1].faculty[0].name, uidT);
     }
     else{
-
-        for(let i = 0; i < permit[0].classroom[i].length; i++){
-            if (permit[0].classroom[i].student === "null")
-
-
-
-        }
         
-        choiceScreen();
+        //if the UID matches anything in the student object, we call choiceScreen with their name and UID
+        for(let i = 0; i < permit[0].classroom.length; i++){
+            if (uid === permit[0].classroom[i].student){
+                console.log(uid);
+                choiceScreen(permit[0].classroom[i].name, uid);
+
+            }
+        }
     }
+
+
 
 
 
@@ -178,11 +182,39 @@ function signOut() {
 
  
 
-function dashboard(name){
+function dashboard(name,id){
     //syntax for the dashboard.html call
     window.location = "./dashboard/index.html";
 }
-function choiceScreen(){
+function choiceScreen(name, id){
+    console.log("CHOICE SCREEN ACTIVE");
+
+    $(".choices").show();
+
+
+    $(".card").on("click", function(){
+        console.log("BUTTON CLICK REGISTERED");
+        console.log($(this).attr("value"));
+
+
+        if ($(this).attr("value") === "math" ) {
+            window.location = "./gameDaniel/index.html";
+        }
+        else if ($(this).attr("value") === "science" ) {
+            window.location = "./gameHaley/index.html";
+        }
+        else if ($(this).attr("value") === "history" ) {
+            window.location = "./gameNathan/index.html";
+        }
+
+
+
+        
+    });
+
+
+
+
 
 }
 

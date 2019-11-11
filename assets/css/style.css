@@ -15,3 +15,12 @@
     color: white;
 
 }
+
+.choices{
+
+    /* This hides the cards for the students choices UNTIL the UID matches that of a student */
+    display: none;
+
+
+
+}
