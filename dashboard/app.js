@@ -26,7 +26,10 @@ const auth = firebase.auth();
 
 
 
-const uidT = "6fdRBjubuiMx5VtwlJJGFdwTsZB3";
+// const uidT = "6fdRBjubuiMx5VtwlJJGFdwTsZB3";
+
+
+//This houses the uid that is going to be logged in.
 let uid = "";
 
 //The UIDs for both students and teachers
@@ -34,11 +37,11 @@ const permit = [
     {
         classroom: [
             {
-                name: "ZIM ZIM SALA BIM",
+                name: "Zim",
                 student: "XW3lYLKJBWbb6YvXqvFkR22M1BP2"
             },
             {
-                name: "Shanaenae",
+                name: "Shan",
                 student: "OBFeNd3ZEGYHerkFipoOMmjkYJ73"
             } 
         ]
@@ -46,7 +49,7 @@ const permit = [
     {
         faculty: [
             {
-                name: "Mizz Cheeks",
+                name: "Miss Miss",
                 teacher: "6fdRBjubuiMx5VtwlJJGFdwTsZB3" 
             }
         ]
@@ -58,7 +61,7 @@ const permit = [
 
 
 
-
+//THE STARTING POINT
 function start(){
 
     $(".authen").show();
@@ -77,10 +80,9 @@ function tokenLogin(){
     
 
 
-    $("#email").attr("placeholder", "Enter Email");
-    $("#pass").attr("placeholder", "Enter Password");
-    $(".authen").show();
     
+    
+    //WHENEVER THE LOGIN BUTTON IS CLICKED, IT GRABS THE NECESSARY VALUES
     $("#login").on("click", function(){
         console.log("LOGIN TOKEN PASSED");
 
@@ -89,7 +91,7 @@ function tokenLogin(){
         const pass = $("#pass").val();
         const auth = firebase.auth();
         
-
+        //IF THE PASSWORD IS INCORRECT, THIS FUNCTION WILL SPIT OUT AN ERROR IN THE FORM OF A TOAST
         const gauntlet = auth.signInWithEmailAndPassword(email, pass).catch(function(error){
             console.log(error);
             if (error){
@@ -106,7 +108,9 @@ function tokenLogin(){
 
 
 
-        
+        //IF THE PAGE DETECTS AN AUTHORIZATION STATE CHANGE, THE USER LOGGING IN WILL BE GRABBED AND DEFINED TO UID
+        //IF THE PASSWORD OR EMAIL IS INCORRECT, IT WON'T DO ANYTHING DUE TO THE TOAST NOTIF HANDLING THAT^^^^
+        //IF THE LOGIN IS CORRECT, THE AUTHENTICATE() FUNCTION WILL FIRE
         firebase.auth().onAuthStateChanged(function(user) {
 
             console.log(user);
@@ -181,11 +185,12 @@ function signOut() {
 
 
  
-
+//CALLS THE DASHBOARD
 function dashboard(name,id){
     //syntax for the dashboard.html call
     window.location = "./dashboard/index.html";
 }
+//CALLS THE CHOICE SCREEN
 function choiceScreen(name, id){
     console.log("CHOICE SCREEN ACTIVE");
 
@@ -238,7 +243,7 @@ function choiceScreen(name, id){
 
 
 
-
+//INITIAL CALL TO START EVERYTHING
 signOut();
 start();
 
