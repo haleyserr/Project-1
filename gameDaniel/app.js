@@ -43,7 +43,9 @@ $(".btn").on("click", function(){
     if( $(this).attr("value") === "yes" ){
 
         console.log("REGISTERED");
-        readysetgo();
+        run();
+        $("#ready").hide();
+        $(".card").show();
 
     }
 
@@ -68,25 +70,37 @@ $(".btn").on("click", function(){
 function readysetgo(){
     let zeta = 1;
     console.log("READYSETGO FUNCTION FIRED");
-    $("#ready").hide();
-    $(".card").show();
-
-    $(".card-text").(`${randomNum()} ${operator()} ${randomNum()}`);
     
+    let sum = 0;
+    let x = randomNum();
+    let y = operator();
+    console.log(y);
+    let z = randomNum();
+
+    $(".card-text").text(` ${x} ${y} ${z} `);
+
+    
+    
+    if (y === "+"){
+        sum = x + z;
+    }
+    else if (y === "-"){
+        sum = x - z;
+    }
 
 
 
 
 
 
-
-
-
+    console.log(sum);
+    return sum;
 };
 
 
 function randomNum(){
     console.log("RANDOMNUM FUNCTION FIRED");
+    
 
     //TODO:
     //zeta is going to be 1; aka Level 1
@@ -98,12 +112,53 @@ function randomNum(){
 
 
 
-
-
-
-     return x
+    console.log(x);
+    return x;
 }
 
 function operator(){
     let operator = ["+", "-"];
+    let index = Math.floor((Math.random() * 2) + 0);
+
+    return operator[index];
+
+}
+
+
+function run(){
+
+    let x = readysetgo();
+
+
+    $(".form-control").on("keyup", function(event){
+        console.log("KEY REGISTERED");
+        event.preventDefault();
+
+        console.log(x);
+        console.log($(".form-control").val());
+        if(event.keyCode === 13){
+            if( parseInt($(".form-control").val()) === x){
+                console.log("CORRECT");
+
+                $(".form-control").val('');
+                playerInfo.score += 1;
+                run();
+            }
+            else{
+                //terminate!
+                console.log(typeof($(".form-control").val()));
+                console.log("TERMINATED");
+            }
+
+
+
+        }
+
+
+    });
+    
+
+
+
+
 }
