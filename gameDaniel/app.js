@@ -16,10 +16,91 @@ console.log(playerInfo.uid);
 
 
 
+let level = 0;
+let iteration = -1;
 
 
+const tripleC = document.createElement("audio");
+tripleC.setAttribute("src", "./audio/TripleCombo.wav");
 
+const hyperC = document.createElement("audio");
+hyperC.setAttribute("src", "./audio/HyperCombo.wav");
 
+const superC = document.createElement("audio");
+superC.setAttribute("src", "./audio/SuperCombo.wav");
+
+const brutalC = document.createElement("audio");
+brutalC.setAttribute("src", "./audio/BrutalCombo.wav");
+
+const masterC = document.createElement("audio");
+masterC.setAttribute("src", "./audio/MasterCombo.wav");
+
+const awesomeC = document.createElement("audio");
+awesomeC.setAttribute("src", "./audio/AwesomeCombo.wav");
+
+const blasterC = document.createElement("audio");
+blasterC.setAttribute("src", "./audio/BlasterCombo.wav");
+
+const monsterC = document.createElement("audio");
+monsterC.setAttribute("src", "./audio/MonsterCombo.wav");
+
+const kingC = document.createElement("audio");
+kingC.setAttribute("src", "./audio/KingCombo.wav");
+
+const killerC = document.createElement("audio");
+killerC .setAttribute("src", "./audio/KillerCombo.wav");
+
+const ultraC = document.createElement("audio");
+ultraC.setAttribute("src", "./audio/UltraCombo.wav");
+
+const ultimateC = document.createElement("audio");
+ultimateC.setAttribute("src", "./audio/UltimateCombo.wav");
+
+const sound = [
+    {
+        
+        byte: [
+            {
+                play: tripleC
+            },
+            {
+                play: hyperC
+            },
+            {
+                play: superC
+            },
+            {
+                play: brutalC
+            },
+            {
+                play: masterC
+            },
+            {
+                play: awesomeC
+            },
+            {
+                play: blasterC
+            },
+            {
+                play: monsterC
+            },
+            {
+                play: kingC
+            },
+            {
+                play: killerC
+            },
+            {
+                play: ultraC
+            },
+            {
+                play: ultimateC
+            }
+            
+        ]
+
+    }
+]
 
 
 
@@ -124,6 +205,34 @@ function operator(){
 
 }
 
+function levelUp(){
+    level++;
+
+    console.log(level);
+    return level;
+}
+
+
+function soundByte(index){
+    
+    
+    if(index > 11){
+        sound[0].byte[11].play.play();
+    }
+    else{
+        sound[0].byte[index].play.play();
+    }
+
+
+
+}
+
+
+
+
+
+
+
 
 function run(){
 
@@ -137,14 +246,17 @@ function run(){
         console.log(x);
         console.log($(".form-control").val());
         if(event.keyCode === 13){
+            
             if( parseInt($(".form-control").val()) === x){
                 console.log("CORRECT");
-
+                
                 $(".form-control").val('');
+                iteration++;
                 playerInfo.score += 1;
                 run();
             }
             else{
+                
                 //terminate!
                 console.log(typeof($(".form-control").val()));
                 console.log("TERMINATED");
@@ -153,6 +265,23 @@ function run(){
 
 
         }
+
+        console.log(iteration);
+        if( iteration === 3){
+            soundByte(levelUp());
+            iteration = 0;
+
+        }
+
+
+
+
+
+
+
+
+
+
 
 
     });
