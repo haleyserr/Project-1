@@ -4,8 +4,9 @@
         <Title>T.A.S.K.</Title>
         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type = "text/css" href="./assets\css\style.css" />
-        
+        <link rel="stylesheet" type = "text/css" href="style.css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Orbitron&display=swap" rel="stylesheet">
+
         
 
     </head>
@@ -23,39 +24,23 @@
         </Header>
 
         
-        <div class = "container" id = "ready" >Ready?
+        <div class = "container" id = "ready" >
+            
+            <h1>Ready?</h1>
 
-
-            <button type = "yes" class="btn btn-primary" id = "yes">YES</button>
-            <button type = "no" class="btn btn-primary" id = "no">NO</button>
+            <button type = "yes" class="btn btn-primary" id = "yes" value = "yes">YES</button>
+            <button type = "quit" class="btn btn-primary" id = "quit" value = "quit">QUIT</button>
 
         </div>
 
-        <div class = container>
-            <div class="card" style="width: 50rem;">
+        <div class="container card" style="width: 18rem;">
                 <div class="card-body">
-                    <p class="card-text"></p>
-                    
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  
                 </div>
-            </div>
         </div>
             
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -95,8 +80,8 @@
         <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
 
 
-        
-        <script src = "./dashboard/app.js">
+        <script src = "../dashboard/app.js"></script>
+        <script src = "app.js">
         
         
         
