@@ -18,6 +18,18 @@ console.log(playerInfo.uid);
 
 let level = 0;
 let iteration = -1;
+let x = 0;
+
+
+
+
+let count = 0;
+let counter = 0;
+let running = true;
+
+
+
+let zeta = 0;
 
 
 const tripleC = document.createElement("audio");
@@ -145,14 +157,13 @@ $(".btn").on("click", function(){
 
 
 
-let count = 0;
-let counter = 0;
-let running = true;
-let zeta = 0;
+
 // let counter = 0;
 //STARTS THE GAME
 function readysetgo(){
     
+    count = 12 - zeta;
+    counter = setInterval( countDown, 1000);
     
     
     let sum = 0;
@@ -161,9 +172,6 @@ function readysetgo(){
     
     let z = randomNum();
 
-    count = 12 - zeta;
-    counter = setInterval( countDown, 1000);
-    
 
     $(".card-text").text(` ${x} ${y} ${z} `);
 
@@ -181,7 +189,7 @@ function readysetgo(){
 
 
 
-    
+    console.log(`SUM IS ${sum}`);
     return sum;
 };
 
@@ -236,16 +244,16 @@ function soundByte(index){
 
 
 function countDown(){
-    console.log(count);
+    
 
     if( running){
         //start countdown timer
         count = count - 1;
-        console.log(count);
+        
         $("#timer").text(`${count} secs`);
 
     
-        console.log(running);
+        
         if (count === 0){
             running = false;
         }
@@ -269,6 +277,8 @@ function countDown(){
 
 function failure(){
     console.log("FAILURE INITIATED");
+    
+    running = false;
 
 
 
@@ -288,28 +298,31 @@ function run(){
     let x = readysetgo();
 
 
+
     $(".form-control").on("keyup", function(event){
         console.log("KEY REGISTERED");
         event.preventDefault();
+        console.log(`SUM IS ${x}`);
 
         
-        console.log($(".form-control").val());
+        let y = parseInt($(".form-control").val())
         if(event.keyCode === 13){
             
-            if( parseInt($(".form-control").val()) === x){
+            if( y === x){
                 console.log("CORRECT");
                 
                 $(".form-control").val('');
                 iteration++;
                 playerInfo.score += 1;
                 clearInterval(counter);
-                run();
+                x = readysetgo();
+                
             }
             else{
                 
                 //terminate!
-                console.log(typeof($(".form-control").val()));
                 console.log("TERMINATED");
+                failure();
 
                 
             }
