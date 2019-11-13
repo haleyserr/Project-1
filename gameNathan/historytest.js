@@ -1,70 +1,58 @@
-let correct = 0;
-const questions = [{
-    question: "When did Christopher Columbus sail across the Atlantic Ocean?",
-    answer: "1492",
-    fake: "1512",
-    fake2: "1812",
-    fake3: "1792",
-},
-{
-    question: "Who is the president on the quarter?",
-    answer: "George Washington",
-    fake: "Abraham Lincoln",
-    fake2: "Franklin D. Roosevelt",
-    fake3: "George Bush",
-},
-{
-    question: "Who was the 10th president of the United States?",
-    answer: "John Tyler",
-    fake: "Abraham Lincoln",
-    fake2: "John Adams",
-    fake3: "George Washington",
-},
-{
-    question: "What war was fought between the North and South sections of The United States?",
-    answer: "Civil War",
-    fake: "War of 1812",
-    fake2: "World War I",
-    fake3: "Indian War",
-},
-{
-    question: "What were the first 10 amendments of the Constitution called?",
-    answer: "Bill of Rights",
-    fake: "10 commandments",
-    fake2: "Bill of Rites",
-    fake3: "Doctorine of human rights",
-},
-{
-    question: "What group of settlers in the Americas first celebrated Thanksgiving?",
-    answer: "Pilgrims",
-    fake: "Indians",
-    fake2: "French",
-    fake3: "British",
-},
-{
-    question: "Who is the President on the half dollar that was assasinated in Dallas, Texas?",
-    answer: "John F. Kennedy",
-    fake: "Abraham Lincoln",
-    fake2: "James A. Garfield",
-    fake3: "William McKinley",
-},
-{
-    question: "Who did the United States buy the Lousiana Purchase from?",
-    answer: "Napoleon Bonaparte",
-    fake: "Napolean Dynamite",
-    fake2: "Julius Caesar",
-    fake3: "King James",
-},
-];
+let score=0;
+let chances = 3;
+let keysUsed =[];
+const questions = ["1492", "1776", "1812", "1865", "1876", "1890", "1915", "1920", "1945", "1968"]
+const tips = ["Year Columbus sailed across the ocean.", "Year USA gained it's independence.", "War between USA and Great Britain in the 1800s.", "Year Abraham Lincoln was assasinated."
+                , "Battle of Little BigHorn", "Plessy v Ferguson", "Sinking of Luisitania / Entrance of US into WWI", "First stock market crash.", 
+                "Bombing of Hiroshima and Nagasaki.", "Assasination of Martin Luther King Jr."]
 
-function quiz (){
-    correct = 0;
-    for (let i = 0; i<questions.length;i++){
-        $("<h5>").addClass("card-title");
-        
-        $("#questionNumber").text("Question "+(i+1));
-        $("#questionText").text(questions[i].question);
-    };
+//This updates the score and chances on screen
+function scoreBoard(){
+    $("#score").html("Score" + score);
+    $("#chances").html("Chances left: "+chances);
+    $("#keys-used").html("Keys Pressed"+ keysUsed);
+}
+
+//MAIN PROGRAM
+//----------------------------------------------------
+
+//Call functions to start game
+scoreBoard();
+
+//Pull user input key and run function
+$(".card").on("keyup", function(){
+    const userInput = event.key;
+
+    if(chances == 0){
+        alert("You have run out of chances.");
+        alert("Your score was: " + score);
+        chances=3;
+        score=0;
+        keysUsed=[];
+        randomNum();
+        scoreBoard();
+        return;
+    }
+
+    if (userInput == randomQNum){
+        alert("Congrats that's the correct number");
+        score++;
+        randomNum();
+        chances = 3;
+        keysUsed=[];
+        scoreBoard();
+        return;
+    } else if (userInput < randomQNum) {
+        alert("Your guess is less than the number.");
+        chances--;
+        keysUsed.push(userInput);
+        scoreBoard();
+    } else if (userInput > randomQNum) {
+        alert("Your guess is higher than the number.");
+        chances--;
+        keysUsed.push(userInput);
+        scoreBoard();
+    }
 };
 
 quiz();
