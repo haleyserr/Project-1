@@ -1,59 +1,54 @@
-let score=0;
-let chances = 3;
-let keysUsed =[];
+let counter = 0;
+let score = 0;
 const questions = ["1492", "1776", "1812", "1865", "1876", "1890", "1915", "1920", "1945", "1968"]
-const tips = ["Year Columbus sailed across the ocean.", "Year USA gained it's independence.", "War between USA and Great Britain in the 1800s.", "Year Abraham Lincoln was assasinated."
-                , "Battle of Little BigHorn", "Plessy v Ferguson", "Sinking of Luisitania / Entrance of US into WWI", "First stock market crash.", 
-                "Bombing of Hiroshima and Nagasaki.", "Assasination of Martin Luther King Jr."]
+const tips = ["Year Columbus sailed across the ocean.", "Year USA gained it's independence.", "War between USA and Great Britain in the 1800s.", "Year Abraham Lincoln was assasinated.", "Battle of Little BigHorn", "Plessy v Ferguson", "Sinking of Luisitania / Entrance of US into WWI", "First stock market crash.",
+    "Bombing of Hiroshima and Nagasaki.", "Assasination of Martin Luther King Jr."
+]
 
 //This updates the score and chances on screen
-function scoreBoard(){
+function scoreBoard() {
     $("#score").html("Score" + score);
-    $("#chances").html("Chances left: "+chances);
-    $("#keys-used").html("Keys Pressed"+ keysUsed);
 }
 
 //MAIN PROGRAM
 //----------------------------------------------------
 
+//Create game
+
+//Create for loop to cycle through the arrays
+function questionSetup(counter) {
+    $("#questionHint").text(tips[counter]);
+    $("#questionNumber").text(`Question: ${counter +=1}`);
+    if (counter > questions.length){
+        window.location = "./endScreen.html";
+    }
+}
+
+//Pull information from form field when submit button is pressed
+$("#submit").on("click", function () {
+    userInput = $("#guess").val().trim();
+
+    //Identify user input and give resulting score or info about wrong answer
+    if (userInput === questions[counter]) {
+        score++;
+        counter++;
+        scoreBoard();
+        questionSetup(counter);
+        alert("That is the correct year good job!");
+        return;
+    } else if (userInput < questions[counter]) {
+        counter++;
+        scoreBoard();
+        questionSetup(counter);
+        alert("Your guess is before the correct year sorry kiddo :(");
+    } else if (userInput > questions[counter]) {
+        counter++;
+        scoreBoard();
+        questionSetup(counter);
+        alert("You guessed after the correct year bukaroo :/");
+    }
+});
+
 //Call functions to start game
 scoreBoard();
-
-//Pull user input key and run function
-$(".card").on("keyup", function(){
-    const userInput = event.key;
-
-    if(chances == 0){
-        alert("You have run out of chances.");
-        alert("Your score was: " + score);
-        chances=3;
-        score=0;
-        keysUsed=[];
-        randomNum();
-        scoreBoard();
-        return;
-    }
-
-    if (userInput == randomQNum){
-        alert("Congrats that's the correct number");
-        score++;
-        randomNum();
-        chances = 3;
-        keysUsed=[];
-        scoreBoard();
-        return;
-    } else if (userInput < randomQNum) {
-        alert("Your guess is less than the number.");
-        chances--;
-        keysUsed.push(userInput);
-        scoreBoard();
-    } else if (userInput > randomQNum) {
-        alert("Your guess is higher than the number.");
-        chances--;
-        keysUsed.push(userInput);
-        scoreBoard();
-    }
-};
-
-quiz();
-
+questionSetup(counter);

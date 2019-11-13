@@ -22,11 +22,14 @@
         <div class="card">
             <div class="card-body">
                 <h5 id="questionNumber" class="card-title" value=""></h5>
-                <p id="questionText" class="card-text" value=""></p>
-                <a href="#" id="answerA" class="btn btn-primary" value=""></a>
-                <a href="#" id="answerB" class="btn btn-primary" value=""></a>
-                <a href="#" id="answerC" class="btn btn-primary" value=""></a>
-                <a href="#" id="answerD" class="btn btn-primary" value=""></a>
+                <p id="questionHint" class="card-text" value=""></p>
+                <form>
+                    <div class="form-group">
+                      <label for="guess">Type the year here and click submit to guess!</label>
+                      <textarea class="form-control" id="guess" rows="1"></textarea>
+                    </div>
+                  </form>
+                <button id="submit" class="btn btn-primary">Submit Answer</button>
             </div>
         </div>
     </div>
