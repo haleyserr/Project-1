@@ -148,10 +148,11 @@ $(".btn").on("click", function(){
 let count = 0;
 let counter = 0;
 let running = true;
+let zeta = 0;
 // let counter = 0;
 //STARTS THE GAME
 function readysetgo(){
-    let zeta = 1;
+    
     
     
     let sum = 0;
@@ -160,8 +161,9 @@ function readysetgo(){
     
     let z = randomNum();
 
-    count = 10;
+    count = 12 - zeta;
     counter = setInterval( countDown, 1000);
+    
 
     $(".card-text").text(` ${x} ${y} ${z} `);
 
@@ -242,8 +244,16 @@ function countDown(){
         console.log(count);
         $("#timer").text(`${count} secs`);
 
-        
+    
         console.log(running);
+        if (count === 0){
+            running = false;
+        }
+
+
+
+
+        
     }
     else if (!running){
         //stop countdown timer
@@ -253,6 +263,15 @@ function countDown(){
     }
 
     
+
+}
+
+
+function failure(){
+    console.log("FAILURE INITIATED");
+
+
+
 
 }
 
@@ -273,7 +292,7 @@ function run(){
         console.log("KEY REGISTERED");
         event.preventDefault();
 
-        console.log(x);
+        
         console.log($(".form-control").val());
         if(event.keyCode === 13){
             
@@ -299,8 +318,19 @@ function run(){
 
         }
 
-        console.log(iteration);
+        
         if( iteration === 3){
+
+            //ZETA IS RESPONSIBLE FOR THE TIMER STARTING SHORTER AFTER EVERY COMBO
+            if(zeta === 10){
+                zeta = 10;
+            }
+            else if (zeta <= 9){
+                zeta += 1 ; 
+            }
+
+
+            //THIS ACTIVATES THE SOUNDS FOR EVERY 3 (OR 4?) CONSECUTIVE RIGHT ANSWERS.
             soundByte(levelUp());
             iteration = 0;
 
