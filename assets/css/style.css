@@ -1,6 +1,34 @@
 
+<<<<<<< HEAD
 
     font-family: 'Dosis', sans-serif;
 
     font-family: 'Titillium Web', sans-serif;
 
+=======
+.authen{
+
+    /* Makes the login screen disappear in the beginning */
+    display: none;
+
+
+
+}
+
+.toast{
+    background-color: rgb(255, 42, 42);
+    max-width: 350px;
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1);
+    color: white;
+
+}
+
+.choices{
+
+    /* This hides the cards for the students choices UNTIL the UID matches that of a student */
+    display: none;
+
+
+
+}
+>>>>>>> bf1f2c1ec3f6bfe5bf968c09e8b530b611fcf144
