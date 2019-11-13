@@ -59,18 +59,11 @@ const questions = [{
 
 function quiz (){
     correct = 0;
-    for (let i = 0; i<questions.length; i++){
+    for (let i = 0; i<questions.length;i++){
+        $("<h5>").addClass("card-title");
+        
         $("#questionNumber").text("Question "+(i+1));
         $("#questionText").text(questions[i].question);
-
-
-
-        $(".primary").on("click", function (event){
-            i++;
-        });
-
-
-        
     };
 };
 
