@@ -118,12 +118,12 @@ $(".card").hide();
 //CLICKING YES WOULD START THE GAME BY RUNNING READYSETGO()
 //CLICKING NO WOULD GO BACK TO LOGIN SCREEN
 $(".btn").on("click", function(){
-    console.log("BUTTON CLICK REGISTERED");
+    
 
 
     if( $(this).attr("value") === "yes" ){
 
-        console.log("REGISTERED");
+        
         run();
         $("#ready").hide();
         $(".card").show();
@@ -131,7 +131,7 @@ $(".btn").on("click", function(){
     }
 
     else if ( $(this).attr("value") === "quit" ){
-        console.log("REGISTERED");
+        
         window.location = "../index.html";
     }   
 
@@ -145,18 +145,23 @@ $(".btn").on("click", function(){
 
 
 
-
-
+let count = 0;
+let counter = 0;
+let running = true;
+// let counter = 0;
 //STARTS THE GAME
 function readysetgo(){
     let zeta = 1;
-    console.log("READYSETGO FUNCTION FIRED");
+    
     
     let sum = 0;
     let x = randomNum();
     let y = operator();
-    console.log(y);
+    
     let z = randomNum();
+
+    count = 10;
+    counter = setInterval( countDown, 1000);
 
     $(".card-text").text(` ${x} ${y} ${z} `);
 
@@ -174,13 +179,13 @@ function readysetgo(){
 
 
 
-    console.log(sum);
+    
     return sum;
 };
 
 
 function randomNum(){
-    console.log("RANDOMNUM FUNCTION FIRED");
+    
     
 
     //TODO:
@@ -193,7 +198,7 @@ function randomNum(){
 
 
 
-    console.log(x);
+    
     return x;
 }
 
@@ -228,6 +233,31 @@ function soundByte(index){
 }
 
 
+function countDown(){
+    console.log(count);
+
+    if( running){
+        //start countdown timer
+        count = count - 1;
+        console.log(count);
+        $("#timer").text(`${count} secs`);
+
+        
+        console.log(running);
+    }
+    else if (!running){
+        //stop countdown timer
+        clearInterval(counter);
+        
+
+    }
+
+    
+
+}
+
+
+
 
 
 
@@ -253,6 +283,7 @@ function run(){
                 $(".form-control").val('');
                 iteration++;
                 playerInfo.score += 1;
+                clearInterval(counter);
                 run();
             }
             else{
@@ -260,6 +291,8 @@ function run(){
                 //terminate!
                 console.log(typeof($(".form-control").val()));
                 console.log("TERMINATED");
+
+                
             }
 
 
