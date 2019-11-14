@@ -19,7 +19,9 @@
             <div class = "container-fluid">
                 <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
                     <a class = "navbar-brand" href = "#">MATH IT UP!</a>
+                    <span id  = "timer" ></span>
                 </nav>
+                <div id = "score">Score: </div>
             </div>
         </Header>
 
@@ -33,9 +35,18 @@
 
         </div>
 
+        <div class = "container" id = "again" >
+            
+            <h1>Try Again?</h1>
+
+            <button type = "yes" class="btn btn-primary" id = "yes" value = "yes">YES</button>
+            <button type = "quit" class="btn btn-primary" id = "quit" value = "quit">QUIT</button>
+
+        </div>
+
         <div class="container card" style="width: 25rem;">
                 <div class="card-body">
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <p class="card-text"></p>
                   
                 </div>
 
@@ -47,8 +58,11 @@
                     <input type="text" class="form-control" placeholder = "Press The Enter Key When Done" aria-label="enter" aria-describedby="basic-addon1" autofocus onfocus = "this.value=''" >
                 </div>
         </div>
-        <span id  = "timer" ></span>
-            
+        <video autoplay muted loop id="video1">
+            <source src="./video/fire1.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        
     </body>
 
 

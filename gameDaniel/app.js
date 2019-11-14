@@ -27,11 +27,11 @@ let count = 0;
 let counter = 0;
 let running = true;
 
-
-
 let zeta = 0;
 
 
+
+//COMBO SOUND EFFECTS INITIALIZATION
 const tripleC = document.createElement("audio");
 tripleC.setAttribute("src", "./audio/TripleCombo.wav");
 
@@ -67,6 +67,25 @@ ultraC.setAttribute("src", "./audio/UltraCombo.wav");
 
 const ultimateC = document.createElement("audio");
 ultimateC.setAttribute("src", "./audio/UltimateCombo.wav");
+
+
+
+
+//SUCCESS AND FAILURE INITIALIZATION || THESE ARE NOT IN THE 'SOUND' OBJECT
+const task = document.createElement("audio");
+task.setAttribute("src", "./audio/task.mp3");
+
+const error = document.createElement("audio");
+error.setAttribute("src", "./audio/error.mp3");
+
+const fight = document.createElement("audio");
+fight.setAttribute("src", "./audio/fight.wav");
+
+const gameover = document.createElement("audio");
+gameover.setAttribute("src", "./audio/gameover.wav");
+
+
+
 
 const sound = [
     {
@@ -118,6 +137,8 @@ const sound = [
 
 
 
+const video = document.getElementById("video1");
+
 
 
 
@@ -134,10 +155,20 @@ $(".btn").on("click", function(){
 
 
     if( $(this).attr("value") === "yes" ){
-
+        
+        //REINITIALIZING AFTER A FAIL-STATE! 
+        fight.play();
+        count = 12;
+        running = true;
+        iteration = -1;
+        zeta = 0;
+        playerInfo.score = 0;
+        
         
         run();
+
         $("#ready").hide();
+        $("#again").hide();
         $(".card").show();
 
     }
@@ -224,6 +255,8 @@ function levelUp(){
     level++;
 
     console.log(level);
+    
+    $("#video1").show();
     return level;
 }
 
@@ -266,6 +299,7 @@ function countDown(){
     else if (!running){
         //stop countdown timer
         clearInterval(counter);
+        failure();
         
 
     }
@@ -277,17 +311,23 @@ function countDown(){
 
 function failure(){
     console.log("FAILURE INITIATED");
+    gameover.play();
+    $("#video1").hide();
     
     running = false;
+    $(".card").hide();
+    
 
+    $("#again").show();
+
+    $(".form-control").val('');
+
+    error.play();
+    
 
 
 
 }
-
-
-
-
 
 
 
@@ -299,7 +339,7 @@ function run(){
 
 
 
-    $(".form-control").on("keyup", function(event){
+    $(".form-control").off().on("keyup", function(event){
         console.log("KEY REGISTERED");
         event.preventDefault();
         console.log(`SUM IS ${x}`);
@@ -309,20 +349,25 @@ function run(){
         if(event.keyCode === 13){
             
             if( y === x){
-                console.log("CORRECT");
+                console.log(`CORRECT! Y IS ${y}. X IS ${x}`);
                 
                 $(".form-control").val('');
                 iteration++;
                 playerInfo.score += 1;
+                $("#score").text(`Score: ${playerInfo.score}`);
                 clearInterval(counter);
+                task.play();
+                $( "body" ).off( "keyup", ".form-control", run );
                 x = readysetgo();
                 
+                
             }
-            else{
+            else if ( y != x){
                 
                 //terminate!
                 console.log("TERMINATED");
-                failure();
+                running = false;
+                return;
 
                 
             }
@@ -350,20 +395,7 @@ function run(){
         }
 
 
-
-
-
-
-
-
-
-
-
-
     });
     
-
-
-
 
 }
