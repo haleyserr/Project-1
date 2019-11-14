@@ -19,6 +19,7 @@ console.log(playerInfo.uid);
 let level = 0;
 let iteration = -1;
 let x = 0;
+let videoI = 0;
 
 
 
@@ -84,6 +85,9 @@ fight.setAttribute("src", "./audio/fight.wav");
 const gameover = document.createElement("audio");
 gameover.setAttribute("src", "./audio/gameover.wav");
 
+const theme = document.createElement("audio");
+theme.setAttribute("src", "./audio/theme.mp3");
+
 
 
 
@@ -138,6 +142,7 @@ const sound = [
 
 
 const video = document.getElementById("video1");
+const videoA = ["fire1","fire2", "fire3", "fire4", "fire5"];
 
 
 
@@ -157,12 +162,15 @@ $(".btn").on("click", function(){
     if( $(this).attr("value") === "yes" ){
         
         //REINITIALIZING AFTER A FAIL-STATE! 
+        theme.play();
         fight.play();
         count = 12;
         running = true;
         iteration = -1;
         zeta = 0;
         playerInfo.score = 0;
+        level = 0;
+        videoI = 0;
         
         
         run();
@@ -257,6 +265,21 @@ function levelUp(){
     console.log(level);
     
     $("#video1").show();
+
+
+
+    if(level % 2 === 0 || level === 1 ){
+        if(videoI === 5){
+            console.log("MAX VIDEO LENGTH REACHED");
+        }
+        else{
+
+            $("#video1").attr("src", `./video/${videoA[videoI]}.mp4`);
+            videoI += 1;
+        }
+        
+    }
+
     return level;
 }
 
