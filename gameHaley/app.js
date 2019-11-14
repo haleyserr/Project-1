@@ -64,6 +64,10 @@ $(document).ready(function () {
         } else if (totalCorrect + totalIncorrect === 20) {
             document.getElementById("question10").style.display = "none";
             document.getElementById("finishScreen").style.display = "block"
+            
+        }
+        else{
+            console.log("Not time for next Question");
         }
 
     }
@@ -74,14 +78,17 @@ $(document).ready(function () {
 
     
     $(".correct").click(function () {
+        event.preventDefault();
         totalCorrect++;
         console.log(totalCorrect);
+        displayNextQuestion();
     });
 
     $(".incorrect").click(function () {
-
+        event.preventDefault();
         totalIncorrect++;
-        console.log("Correct" + totalIncorrect);
+        console.log(totalIncorrect);
+        displayNextQuestion();
     });
 
 
@@ -90,9 +97,27 @@ $(document).ready(function () {
 
     //Points for Q4 (match class of moveable elements to container)
 
-    //Points for Q4 (match class of moveable elements to container)
+    //Points for Q6 (match class of moveable elements to container)
+
+    $(".moveable").draggable({
+        cursor: "move";
+        containment: "parent";
+        stop: evalAnswers();
+    
+    })
+
+    $(".droppable").droppable({
+        drop: evalAnswers();
+    })
+
+    evalanswers() {
+        //compare classes
+        
+    }
 
     // Update Firebase with score when quiz complete
+
+   
 
 
 
