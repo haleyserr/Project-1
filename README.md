@@ -4,7 +4,7 @@ Project 1 Team # 1
 
 TASK (Texas Analysis of Skills for Kids)
 
-> [Live Site](Put the deployed link here once you have it)
+> https://haleyserr.github.io/Project-1/ 
 
 ## Project Summary
 
