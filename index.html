@@ -1,81 +1,111 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <Title>T.A.S.K.</Title>
-        
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type = "text/css" href="./assets\css\style.css" />
-        
-        
+<html lang="en">
 
-    </head>
+<head>
+    <Title>T.A.S.K.</Title>
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Titillium+Web&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
 
 
-    <body>
-        <Header>
-            <div class = "container-fluid">
-                <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a class = "navbar-brand" href = "#">OPERATION T.A.S.K.</a>
-                </nav>
-            </div>
-        </Header>
+
+</head>
 
 
-       
-        <!-- This houses the fields for username and password -->
-        <div class = "authen">
-            <label for = "email">Email</label>
-            <input type = "email" class = "form-control" id = "email" placeholder = "Enter Email">
-            
-            <label for = "pass">Password</label>
-            <input type = "password" class = "form-control" id = "pass" placeholder = "Enter Password">
 
-            <button type = "login" class="btn btn-primary" id = "login">login</button>
-
+<body>
+    <Header>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">OPERATION T.A.S.K.</a>
+            </nav>
         </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
         
+=======
+    </Header>
+>>>>>>> e79db8f29c658f87d5595c046bf37c9735848fec
 
-        <div class = "container">
-                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide = "false" data-delay = "500">
 
-                    <div class="toast-body">
-                        Wrong Login Info
-                    </div>
-                </div>
+
+    <!-- This houses the fields for username and password -->
+    <div class="authen">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter Email">
+
+        <label for="pass">Password</label>
+        <input type="password" class="form-control" id="pass" placeholder="Enter Password">
+
+        <button type="login" class="btn btn-primary" id="login">login</button>
+
+    </div>
+
+
+    <div class="container">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" data-delay="500">
+
+            <div class="toast-body">
+                Wrong Login Info
+            </div>
         </div>
-    
-        <!-- TODO: Add a hover animation to notify that these cards are clickable. -->
-        <!-- These are clickable -->
-        <div class = "choices">
-            
-            <div class="card" value = "math">
-                <div class="card-body">
-                    MATH
-                    
-                </div>
-                
-            </div>
-            <div class="card" value = "science">
-                <div class="card-body">
-                    SCIENCE
-                    
-                </div>
-            </div>
-            <div class="card" value = "history">
-                <div class="card-body">
-                    HISTORY
-                    
-                </div>
-            </div>
+    </div>
+
+    <!-- TODO: Add a hover animation to notify that these cards are clickable. -->
+    <!-- These are clickable -->
+    <div class="choices">
+        <h2>Choose a TASK to begin!</h2>
 
 
+        <div class="card polarbear moveable" style="width: 18rem;">
+            <img src="./assets/images/math.png" class="card-img-top" alt="math" href="./gameDaniel/index.html">
 
 
         </div>
-    
+
+        <div class="card polarbear moveable" style="width: 18rem;">
+            <img src="./assets/images/science.png" class="card-img-top" alt="science" href="./gameHaley/index.html">
+
+        </div>
+
+        <div class="card polarbear moveable" style="width: 18rem;">
+            <img src="./assets/images/history.jpg" class="card-img-top" alt="history" href="./gameNathan/index.html">
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <!-- Why are all these scripts living down here? -Haley -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+
+
+
+    <script src="./dashboard/app.js">
+
 
 
 
@@ -84,19 +114,32 @@
 
 
 
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
 
 
+<<<<<<< HEAD
         
         <script src = "./dashboard/app.js"></script>
     </body>
+=======
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+>>>>>>> e79db8f29c658f87d5595c046bf37c9735848fec
 
 
 
 </html>
+>>>>>>> bf1f2c1ec3f6bfe5bf968c09e8b530b611fcf144
