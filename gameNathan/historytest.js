@@ -9,10 +9,10 @@ const tips = ["Year Columbus sailed across the ocean.", "Year USA gained it's in
 function questionSetup(counter) {
     $("#questionHint").text(tips[counter]);
     $("#questionNumber").text(`Question: ${counter +=1}`);
-    if (counter === questions.length+1){
+    if (counter === questions.length + 1) {
         const scoreTotal = $("<h1>");
         scoreTotal.addClass("display-4");
-        scoreTotal.text("Score: "+ score + "/10");
+        scoreTotal.text("Score: " + score + "/10");
         $("#containerScore").prepend(scoreTotal);
     };
 };
@@ -26,16 +26,16 @@ $("#submit").on("click", function () {
         score++;
         counter++;
         questionSetup(counter);
-        alert("That is the correct year good job!");
+        $("#correctAnswer").toast('show');
         return;
     } else if (userInput < questions[counter]) {
         counter++;
         questionSetup(counter);
-        alert("Your guess is before the correct year sorry kiddo :(");
+        $("#tooEarlyAnswer").toast('show');
     } else if (userInput > questions[counter]) {
         counter++;
         questionSetup(counter);
-        alert("You guessed after the correct year bukaroo :/");
+        $("#tooLateAnswer").toast('show');
     };
 });
 
