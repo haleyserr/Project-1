@@ -242,7 +242,7 @@ function choiceScreen(name, id){
 ///////////////////////////////////////
 
 //INITIAL CALL TO START EVERYTHING
-signOut();
+// signOut();
 start();
 
 

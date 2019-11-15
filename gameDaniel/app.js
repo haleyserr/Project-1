@@ -150,9 +150,18 @@ const videoA = ["fire1","fire2", "fire3", "fire4", "fire5"];
 
 $(".card").hide();
 
-playerInfo.uid = uidSelect;
-console.log(playerInfo.uid);
-console.log(uidSelect);
+// playerInfo.uid = uidSelect;
+// console.log(playerInfo.uid);
+// console.log(uidSelect);
+firebase.auth().onAuthStateChanged(function(user){
+    console.log(user.uid);
+
+});
+
+
+
+
+
 
 
 //CLICKING YES WOULD START THE GAME BY RUNNING READYSETGO()
