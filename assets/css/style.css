@@ -1,8 +1,16 @@
-
-
+/* Somebody pick between one of the two */
+body{
     font-family: 'Dosis', sans-serif;
 
     font-family: 'Titillium Web', sans-serif;
+
+}
+
+.navbar-brand{
+    font-size: 2em;
+}
+
+
 
 .authen{
 
@@ -29,3 +37,24 @@
 
 
 }
+
+
+/* To notify when the certain quiz/test/game is completed */
+.note1{
+    display: none;
+}
+.note2{
+    display: none;
+}
+.note3{
+    display: none;
+}
+
+
+
+#sout{
+    position: absolute;
+    left: 85%;
+    right: 5%;
+}
+

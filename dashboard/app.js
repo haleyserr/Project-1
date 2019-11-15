@@ -229,7 +229,7 @@ function choiceScreen(name, id){
 
         if ( snapshot.exists()){
             console.log("MATH IS ALREADY DONE");
-            
+            $(".note1").show();
 
 
         }
