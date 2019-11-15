@@ -1,0 +1,15 @@
+.bodyText {
+    color: white;
+}
+
+.row {
+
+    padding-top: 200px;
+}
+
+body {
+    z-index: 0;
+    background: url('/assets/images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}

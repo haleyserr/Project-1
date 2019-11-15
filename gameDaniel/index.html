@@ -4,8 +4,9 @@
         <Title>T.A.S.K.</Title>
         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type = "text/css" href="./assets\css\style.css" />
-        
+        <link rel="stylesheet" type = "text/css" href="style.css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans|Orbitron&display=swap" rel="stylesheet">
+
         
 
     </head>
@@ -18,44 +19,51 @@
             <div class = "container-fluid">
                 <nav class = "navbar navbar-expand-lg navbar-dark bg-dark">
                     <a class = "navbar-brand" href = "#">MATH IT UP!</a>
+                    <span id  = "timer" ></span>
                 </nav>
+                <div id = "score">Score: </div>
             </div>
         </Header>
 
         
-        <div class = "container" id = "ready" >Ready?
-
-
-            <button type = "yes" class="btn btn-primary" id = "yes">YES</button>
-            <button type = "no" class="btn btn-primary" id = "no">NO</button>
-
-        </div>
-
-        <div class = container>
-            <div class="card" style="width: 50rem;">
-                <div class="card-body">
-                    <p class="card-text"></p>
-                    
-                </div>
-            </div>
-        </div>
+        <div class = "container" id = "ready" >
             
+            <h1>Ready?</h1>
+
+            <button type = "yes" class="btn btn-primary" id = "yes" value = "yes">YES</button>
+            <button type = "quit" class="btn btn-primary" id = "quit" value = "quit">QUIT</button>
+
+        </div>
+
+        <div class = "container" id = "again" >
+            
+            <h1>Try Again?</h1>
+
+            <button type = "yes" class="btn btn-primary" id = "yes" value = "yes">YES</button>
+            <button type = "quit" class="btn btn-primary" id = "quit" value = "quit">QUIT</button>
+
+        </div>
+
+        <div class="container card" style="width: 25rem;">
+                <div class="card-body">
+                  <p class="card-text"></p>
+                  
+                </div>
+
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    </div>
+                    <input type="text" class="form-control" placeholder = "Press The Enter Key When Done" aria-label="enter" aria-describedby="basic-addon1" autofocus onfocus = "this.value=''" >
+                </div>
+        </div>
+        <video autoplay muted loop id="video1">
+            <source src="./video/fire1.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        
     </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -95,8 +103,8 @@
         <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
 
 
-        
-        <script src = "./dashboard/app.js">
+        <script src = "../dashboard/app.js"></script>
+        <script src = "app.js">
         
         
         

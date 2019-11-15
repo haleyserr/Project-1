@@ -76,7 +76,7 @@ function start(){
 
 
 function tokenLogin(){
-    console.log("AWAITING LOGIN TEKON");
+    console.log("AWAITING LOGIN TOKEN");
     
 
 
