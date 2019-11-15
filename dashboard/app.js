@@ -98,9 +98,7 @@ function tokenLogin(){
                 console.log("INCORRECT PASSWORD");
                 
                 $(".toast").toast('show');
-                setTimeout(function() {
-                    $(".toast").hide();
-                }, 1500);
+                
 
             }
             
@@ -241,11 +239,22 @@ function choiceScreen(name, id){
 
 
 
-
+///////////////////////////////////////
 
 //INITIAL CALL TO START EVERYTHING
 signOut();
 start();
+
+
+
+///////////////////////////////////////
+
+
+// const studentFolder = database.ref("/students/");
+
+
+// $("#login".on("click", function
+
 
 
 
