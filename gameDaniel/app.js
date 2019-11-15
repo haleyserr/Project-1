@@ -12,8 +12,12 @@ const playerInfo =
 
 
 
-console.log(playerInfo.uid);
 
+
+
+
+playerInfo.uid = uid;
+console.log(playerInfo.uid);
 
 
 let level = 0;
