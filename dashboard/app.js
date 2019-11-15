@@ -43,6 +43,10 @@ const permit = [
             {
                 name: "Shan",
                 student: "OBFeNd3ZEGYHerkFipoOMmjkYJ73"
+            },
+            {
+                name: "HAVAAA-NAGILA",
+                student: "dgE56r8VvRMjycFZImBU8fbV1Hv1"
             } 
         ]
     },
@@ -134,7 +138,7 @@ function tokenLogin(){
 
 
 function authenticate(){
-    console.log("AUTHENTICATION PROCESS ACTIVATED");
+    console.log(`AUTHENTICATION PROCESS ACTIVATED. UID IS ${uid}`);
     $(".authen").hide();
     
     //IF THE UID MATCHES THE TEACHER, IT GOES TO DASHBOARD. IF IT DOESN'T MATCH A TEACHER UID, THEN OFF TO THE CHOICE SCREEN WITH YOU
@@ -144,7 +148,7 @@ function authenticate(){
 
 
         //calls the dashboard.html
-        dashboard(permit[1].faculty[0].name, uidT);
+        dashboard(permit[1].faculty[0].name, uid);
     }
     else{
         
@@ -216,6 +220,24 @@ function choiceScreen(name, id){
     });
 
 
+    //THIS PROVIDES THE BANNER FOR WHENEVER A STUDENT IS DONE WITH A GAME/QUIZ
+    //IF THE STUDENT CLICKS ON THE PRECOMPLETED QUIZ/GAME, PROGRESS RESETS IN FIREBASE
+    //THIS CODE IS TO LET STOOOPID KID KNOW HE/SHE/THEY WHOMEVER DID IT ALREADY.
+    const entry = database.ref(`math/${uid}`);
+
+    entry.on("value", function(snapshot) {
+
+        if ( snapshot.exists()){
+            console.log("MATH IS ALREADY DONE");
+            
+
+
+        }
+
+
+    });
+
+
 
 
 
@@ -244,18 +266,23 @@ function choiceScreen(name, id){
 //INITIAL CALL TO START EVERYTHING
 // signOut();
 start();
+// signOut();
 
 
 
 ///////////////////////////////////////
 
 
-// const studentFolder = database.ref("/students/");
-
-
-// $("#login".on("click", function
 
 
 
+$("#sout").on("click", function(){
+    signOut();
+    window.location = "index.html";
+
+
+
+
+});
 
 
