@@ -1,5 +1,31 @@
 
 
+firebase.auth().onAuthStateChanged(function(user){
+    console.log(user.uid);
+
+    playerInfo.uid = user.uid;
+
+    const dash = database.ref(`math/${playerInfo.uid}`)
+    dash.set({
+        uid: playerInfo.uid,
+        
+    })
+
+
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
 const playerInfo = 
     {
         uid: "",
@@ -12,7 +38,7 @@ const playerInfo =
 
 
 
-console.log(playerInfo.uid);
+
 
 
 
@@ -150,9 +176,7 @@ const videoA = ["fire1","fire2", "fire3", "fire4", "fire5"];
 
 $(".card").hide();
 
-playerInfo.uid = uidSelect;
-console.log(playerInfo.uid);
-console.log(uidSelect);
+
 
 
 //CLICKING YES WOULD START THE GAME BY RUNNING READYSETGO()
@@ -184,7 +208,7 @@ $(".btn").on("click", function(){
     }
 
     else if ( $(this).attr("value") === "quit" ){
-        
+        signOut();
         window.location = "../index.html";
     }   
 
@@ -239,10 +263,7 @@ function randomNum(){
     
     
 
-    //TODO:
-    //zeta is going to be 1; aka Level 1
-    //multiply zeta with the 10 value
-    //Math.random() * (zeta * 10)
+    
     let x = Math.floor((Math.random() * 10) + 1);
     
 
@@ -378,7 +399,17 @@ function run(){
                 
                 $(".form-control").val('');
                 iteration++;
+
                 playerInfo.score += 1;
+                const entry = database.ref(`math/${playerInfo.uid}`)
+
+                entry.set({
+                    
+                    score: playerInfo.score
+                    
+
+                })
+
                 $("#score").text(`Score: ${playerInfo.score}`);
                 clearInterval(counter);
                 task.play();
@@ -424,3 +455,24 @@ function run(){
     
 
 }
+//////////////////////////////////////////////////////////////
+
+
+function signOut() {
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+      }).catch(function(error) {
+        // An error happened.
+      });
+}
+
+$("#sout").on("click", function(){
+        signOut();
+        window.location = "../index.html";
+
+
+
+
+});
+
+
