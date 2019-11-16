@@ -22,6 +22,7 @@ $(document).ready(function () {
         document.getElementById("question8").style.display = "none";
         document.getElementById("question9").style.display = "none";
         document.getElementById("question10").style.display = "none";
+        document.getElementById("finishScreen").style.display = "none";
 
 
     }
@@ -64,6 +65,7 @@ $(document).ready(function () {
         } else if (totalCorrect + totalIncorrect === 20) {
             document.getElementById("question10").style.display = "none";
             document.getElementById("finishScreen").style.display = "block"
+            submitResults();
             
         }
         else{
@@ -99,48 +101,72 @@ $(document).ready(function () {
 
     //Points for Q6 (match class of moveable elements to container)
 
-    $(".moveable").draggable({
-        cursor: "move";
-        containment: "parent";
-        stop: evalAnswers();
+    //Tabling Drag/Drop for future development
+
+    //$(".moveable").draggable({
+        //cursor: "move";
+        //containment: "parent";
+        //stop: evalAnswers();
     
-    })
+    //})
 
-    $(".droppable").droppable({
-        drop: evalAnswers();
-    })
+    //$(".droppable").droppable({
+        //drop: evalAnswers();
+    //})
 
-    evalanswers() {
+   // evalanswers() {
         //compare classes
         
-    }
+    //}
+    
 
     // Update Firebase with score when quiz complete
 
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+    //<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    //<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
+    //<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+    //<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+
+
+   
     
     
-    const firebaseConfig = {
-        apiKey: "AIzaSyBiKzQFqt-WPMEGbNOMbL4RhTIeXXWqV_M",
-        authDomain: "operation-t-a-s-k-d028a.firebaseapp.com",
-        databaseURL: "https://operation-t-a-s-k-d028a.firebaseio.com",
-        projectId: "operation-t-a-s-k-d028a",
-        storageBucket: "operation-t-a-s-k-d028a.appspot.com",
-        messagingSenderId: "520491246095",
-        appId: "1:520491246095:web:b686d6f2add5af5a88b97a",
-        measurementId: "G-KS570N29FC"
-    };
+    //const firebaseConfig = {
+        //apiKey: "AIzaSyBiKzQFqt-WPMEGbNOMbL4RhTIeXXWqV_M",
+        //authDomain: "operation-t-a-s-k-d028a.firebaseapp.com",
+       // databaseURL: "https://operation-t-a-s-k-d028a.firebaseio.com",
+        //projectId: "operation-t-a-s-k-d028a",
+        //storageBucket: "operation-t-a-s-k-d028a.appspot.com",
+        //messagingSenderId: "520491246095",
+       // appId: "1:520491246095:web:b686d6f2add5af5a88b97a",
+        //measurementId: "G-KS570N29FC"
+   // };
     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
+   // firebase.initializeApp(firebaseConfig);
+    //firebase.analytics();
     
-    const database = firebase.database();
+    //const database = firebase.database();
+
+    //let Score = totalCorrect * 5;
+    //let Name = 
+
+    //submitResults(){
 
 
+    //};
 
+
+ function signOut() {
+        firebase.auth().signOut().then(function() {
+            // Sign-out successful.
+          }).catch(function(error) {
+            // An error happened.
+          });
+    }
+    $("#sout").on("click", function(){
+            signOut();
+            window.location = "../index.html";
+    });
 
 
 });

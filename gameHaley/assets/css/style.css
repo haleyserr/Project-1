@@ -1,15 +1,37 @@
-.bodyText {
-    color: white;
-}
-
-.row {
-
-    padding-top: 200px;
-}
 
 body {
     z-index: 0;
-    background: url('/assets/images/background.png');
-    background-size: cover;
+    background: url('../images/test.jpg');
     background-repeat: no-repeat;
 }
+.row {
+
+    padding-top: 50px;
+}
+
+.SOM {
+    width: 200px;
+    height: 200px;
+
+}
+
+
+.correct{
+
+    padding-right: 25px;
+    padding-left: 25px;
+}
+
+
+.incorrect {
+
+    padding-right: 25px;
+    padding-left: 25px;
+
+}
+
+.koala {
+
+    height: 320.5;
+}
+
