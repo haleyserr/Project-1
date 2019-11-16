@@ -1,78 +1,137 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <Title>D.A.S.H.B.O.A.R.D.</Title>
-        <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.js" ></script> -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        
-        
-        
+<html lang="en">
 
-    </head>
+<head>
+    <Title>D.A.S.H.B.O.A.R.D.</Title>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.js" ></script> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+
+            background: url('../assets/images/background.png');
+            background-size: cover;
+
+
+        }
+
+        .tomorrow {
+            font-family: 'Tomorrow', sans-serif;
+            color: whitesmoke;
+        }
+
+        .toppadding {
+
+            padding-top: 75px;
+        }
+    </style>
+
+
+
+
+
+
+</head>
 
 
 </html>
 
 
-<body>
+<body class="text-center content-center tomorrow">
 
-        <div class="row content-center">
-                <div class="col-md-2"></div>
-                <div id="train-display" class="col-md-8 align-center">
-                    <h1 class="text-center">Student Scores</h1>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Student Name</th>
-                                <th scope="col">Math Score</th>
-                                <th scope="col">Science Score</th>
-                                <th scope="col">History Score</th>
-                               
-        
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Haley Serr</td>
-                                <td>50</td>
-                                <td>100</td>
-                                <td>75</td>
-                                
-        
-                            </tr>
-                        </tbody>
-                    </table>
-        
-                </div>
+    <div class="row toppadding">
 
-                <div class="row content-center">
-                        <div class="col-md-2"></div>
-                        <div id="train-display" class="col-md-8 align-center">
-                            <h1 class="text-center">Average Score by Subject</h1>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Number of Students</th>
-                                        <th scope="col">Math Average</th>
-                                        <th scope="col">Science Average</th>
-                                        <th scope="col">History Average</th>
-                                       
-                
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>75</td>
-                                        <td>85</td>
-                                        <td>60</td>
-                                        
-                
-                                    </tr>
-                                </tbody>
-                            </table>
-                
-                        </div>        
-    
+        <div id="score-display" class="col-md-12">
+            <h1>Student Scores</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="tomorrow" scope="col">Student Name</th>
+                        <th class="tomorrow" scope="col">Math Score</th>
+                        <th class="tomorrow" scope="col">Science Score</th>
+                        <th class="tomorrow" scope="col">History Score</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td class="tomorrow">Daniel Devarajan</td class="tomorrow">
+                        <td class="tomorrow">100</td class="tomorrow">
+                        <td class="tomorrow">100</td class="tomorrow">
+                        <td class="tomorrow">100</td class="tomorrow">
+                    </tr>
+                    <tr>
+                        <td class="tomorrow">Haley Serr</td class="tomorrow">
+                        <td class="tomorrow">50</td class="tomorrow">
+                        <td class="tomorrow">100</td class="tomorrow">
+                        <td class="tomorrow">75</td class="tomorrow">
+                    </tr>
+
+                    <tr>
+                        <td class="tomorrow">Nathan Bright</td class="tomorrow">
+                        <td class="tomorrow">100</td class="tomorrow">
+                        <td class="tomorrow">95</td class="tomorrow">
+                        <td class="tomorrow">100</td class="tomorrow">
+                    </tr>
+
+                    <tr>
+                        <td class="tomorrow">Sally Mae</td class="tomorrow">
+                        <td class="tomorrow">75</td class="tomorrow">
+                        <td class="tomorrow">75</td class="tomorrow">
+                        <td class="tomorrow">75</td class="tomorrow">
+                    </tr>
+
+                    <tr>
+                        <td class="tomorrow">Bobby Blue</td class="tomorrow">
+                        <td class="tomorrow">50</td class="tomorrow">
+                        <td class="tomorrow">50</td class="tomorrow">
+                        <td class="tomorrow">50</td class="tomorrow">
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="row toppadding">
+        <div class="col-md-12">
+            <div id="average-display">
+                <h1>Average Score by Subject</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="tomorrow" scope="col">Number of Students</th>
+                            <th class="tomorrow" scope="col">Math Average</th>
+                            <th class="tomorrow" scope="col">Science Average</th>
+                            <th class="tomorrow" scope="col">History Average</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="tomorrow">5</td class="tomorrow">
+                            <td class="tomorrow">75</td class="tomorrow">
+                            <td class="tomorrow">84</td class="tomorrow">
+                            <td class="tomorrow">80</td class="tomorrow">
+
+
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+
+
+        </div>
+
+</div>
+
 </body>
