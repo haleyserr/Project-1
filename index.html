@@ -16,24 +16,21 @@
 
 
 <body>
-    <Header>
+    <header>
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a class="navbar-brand" href="#">OPERATION T.A.S.K.</a>
+                <button type = "signout" class="btn btn-primary" id = "sout" value = "sout">Sign Out</button>
             </nav>
         </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        
-=======
-    </Header>
->>>>>>> e79db8f29c658f87d5595c046bf37c9735848fec
+
+    </header>
+
 
 
 
     <!-- This houses the fields for username and password -->
-    <div class="authen">
+    <div class="authen col-sm-6">
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" placeholder="Enter Email">
 
@@ -46,7 +43,7 @@
 
 
     <div class="container">
-        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="false" data-delay="500">
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-autohide="true" data-delay="1500">
 
             <div class="toast-body">
                 Wrong Login Info
@@ -56,26 +53,26 @@
 
     <!-- TODO: Add a hover animation to notify that these cards are clickable. -->
     <!-- These are clickable -->
-    <div class="choices">
+    <div class="choices col-12">
         <h2>Choose a TASK to begin!</h2>
 
+        <div class = "row">
+            <div class="card polarbear moveable col-md-4 col-sm-6 col-xs-6" style="width: 18rem;" value = "math">
+                <img src="./assets/images/math.png" class="card-img-top" alt="math" href="./gameDaniel/index.html">
+                <div class="note1">COMPLETED</div>
 
-        <div class="card polarbear moveable" style="width: 18rem;">
-            <img src="./assets/images/math.png" class="card-img-top" alt="math" href="./gameDaniel/index.html">
+            </div>
 
+            <div class="card polarbear moveable col-md-4 col-sm-6 col-xs-6" style="width: 18rem;" value = "science">
+                <img src="./assets/images/science.png" class="card-img-top" alt="science" href="./gameHaley/index.html">
+                <div class="note2">COMPLETED</div>
+            </div>
 
+            <div class="card polarbear moveable col-md-4 col-sm-6 col-xs-6" style="width: 18rem;" value = "history">
+                <img src="./assets/images/history.jpg" class="card-img-top" alt="history" href="./gameNathan/index.html">
+                <div class="note3">COMPLETED</div>
+            </div>
         </div>
-
-        <div class="card polarbear moveable" style="width: 18rem;">
-            <img src="./assets/images/science.png" class="card-img-top" alt="science" href="./gameHaley/index.html">
-
-        </div>
-
-        <div class="card polarbear moveable" style="width: 18rem;">
-            <img src="./assets/images/history.jpg" class="card-img-top" alt="history" href="./gameNathan/index.html">
-
-        </div>
-
     </div>
 
 
@@ -102,25 +99,21 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
 
+    
 
-
+    
     <script src="./dashboard/app.js">
 
 
 
 
 
->>>>>>> bf1f2c1ec3f6bfe5bf968c09e8b530b611fcf144
 
 
 
 
-
-<<<<<<< HEAD
+    
         
-        <script src = "./dashboard/app.js"></script>
-    </body>
-=======
 
 
 
@@ -137,9 +130,8 @@
 
 
 </body>
->>>>>>> e79db8f29c658f87d5595c046bf37c9735848fec
+
 
 
 
 </html>
->>>>>>> bf1f2c1ec3f6bfe5bf968c09e8b530b611fcf144

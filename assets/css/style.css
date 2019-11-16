@@ -1,11 +1,17 @@
-
-<<<<<<< HEAD
-
+/* Somebody pick between one of the two */
+body{
     font-family: 'Dosis', sans-serif;
 
     font-family: 'Titillium Web', sans-serif;
 
-=======
+}
+
+.navbar-brand{
+    font-size: 2em;
+}
+
+
+
 .authen{
 
     /* Makes the login screen disappear in the beginning */
@@ -31,4 +37,24 @@
 
 
 }
->>>>>>> bf1f2c1ec3f6bfe5bf968c09e8b530b611fcf144
+
+
+/* To notify when the certain quiz/test/game is completed */
+.note1{
+    display: none;
+}
+.note2{
+    display: none;
+}
+.note3{
+    display: none;
+}
+
+
+
+#sout{
+    position: absolute;
+    left: 85%;
+    right: 5%;
+}
+
