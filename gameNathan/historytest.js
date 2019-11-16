@@ -39,5 +39,21 @@ $("#submit").on("click", function () {
     };
 });
 
+//firebase.auth().onAuthStateChanged(function(user){
+//    console.log(user.uid);
+//});
+
+function signOut(){
+firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+  }).catch(function(error) {
+    // An error happened.
+  });
+}
+$("#sout").on("click", function(){
+    signOut();
+    window.location = "../index.html";
+});
+
 //Call functions to start game
 questionSetup(counter);
