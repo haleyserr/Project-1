@@ -1,5 +1,9 @@
 
-
+body {
+    z-index: 0;
+    background: url('../images/test.jpg');
+    background-repeat: no-repeat;
+}
 .row {
 
     padding-top: 50px;
@@ -30,3 +34,4 @@
 
     height: 320.5;
 }
+

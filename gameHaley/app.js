@@ -118,6 +118,7 @@ $(document).ready(function () {
         //compare classes
         
     //}
+    
 
     // Update Firebase with score when quiz complete
 
@@ -125,6 +126,9 @@ $(document).ready(function () {
     //<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-analytics.js"></script>
     //<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
     //<script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+
+
+   
     
     
     //const firebaseConfig = {
@@ -151,6 +155,18 @@ $(document).ready(function () {
 
     //};
 
+
+ function signOut() {
+        firebase.auth().signOut().then(function() {
+            // Sign-out successful.
+          }).catch(function(error) {
+            // An error happened.
+          });
+    }
+    $("#sout").on("click", function(){
+            signOut();
+            window.location = "../index.html";
+    });
 
 
 });
