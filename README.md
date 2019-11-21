@@ -1,8 +1,9 @@
 # Project-1
-Project 1 Team # 1
+Project 1 Team # 1 : arrayDevelopers [Nathan, Daniel, Haley]
+
 # Name of Project
 
-TASK (Texas Analysis of Skills for Kids)
+T.A.S.K (Texas Analysis of Skills for Kids)
 
 > https://haleyserr.github.io/Project-1/ 
 
@@ -19,7 +20,6 @@ Teachers are able to view their class roster and students results in a sleek das
 - Developer 1: Daniel: Role
 
   Game A: Math
-  2nd HTML/CSS/Bootstrap
   Database/Ajax
   Libraries/Authentication
   
@@ -27,47 +27,57 @@ Teachers are able to view their class roster and students results in a sleek das
 
   Game B: History
   JQuery
-  2nd Database
-  2nd Dashboard
   
 - Developer 3: Haley: Role
 
   Game C: Science
-  HTML/CSS/Bootstrap
   Dashboard
-  3rd Database
+  
  
 
 ## Animated Gifs/Pictures of App
 
-- Place various screens of your app here after they have been built
+./Screenshots 
+
+To sign in as student-
+
+Username: abc@123.com
+Password: ABC123
+
+TO sign in as teacher-
+
+Username: themightytaskforce@gmail.com
+Password: qwerTY123
+
 
 ## Tech Stack
 
 - HTML, Bootstrap, CSS, JQuery, JS
-- Charty Charts
+
 
 
 ## APIs
 
 Giphy
-Google Classroom
 National Archives API
 
 ## MVP
 
-- FUN Games
-- Sleek UI
-- Database emphasis
+- 3 Starter Games
+- Dashboard for demonstration purposes
+- Student vs Teacher Authentication
 
 ## Stretch Goals
 
-- Extra Resources, another subject game
+- Creative testing methods
+- Dashboard Graphics
 
 ## Future Development
 
-- Whats been tabled
-- Update this after the project has been completed
+- More games for other subjects
+- More challenging/complex games
+- Ability for teacher to push out new content/content tailored to a specific student
+- Completed Firebase integration
 
 ## Credits/Resources
 

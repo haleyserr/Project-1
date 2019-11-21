@@ -65,7 +65,7 @@ $(document).ready(function () {
         } else if (totalCorrect + totalIncorrect === 20) {
             document.getElementById("question10").style.display = "none";
             document.getElementById("finishScreen").style.display = "block"
-            submitResults();
+            //submitResults();
             
         }
         else{
@@ -118,7 +118,7 @@ $(document).ready(function () {
         //compare classes
         
     //}
-    
+
 
     // Update Firebase with score when quiz complete
 
@@ -166,6 +166,41 @@ $(document).ready(function () {
     $("#sout").on("click", function(){
             signOut();
             window.location = "../index.html";
+    });
+
+
+    //Giphy Search on final screen
+    //When gif button click, get gipphin'
+
+    $(".gifButton").on("click", function (event) {
+        const search = $(this).attr("data-search");
+        console.log(search);
+        
+        const queryURL =
+            `https://api.giphy.com/v1/gifs/search?q=${search}&limit=10&offset=0&rating=G&lang=en&api_key=go3sk7tUvrCEUzAsG5JmIZLWWfHr2kAk`;
+        console.log(queryURL);
+        
+        // AJAX Call
+        $.ajax({
+                url: queryURL,
+                method: "GET"
+            })
+           
+            .then(function (response) {
+                const results = response.data;
+
+                //Get Results and Create/Display Containers
+               
+                for (let i = 0; i < results.length; i++) {
+                    const gifDiv = $("<div>");
+                    const gifImg = $("<img>");
+                    const animateURL = results[i].images.fixed_height.url;
+                    gifImg.attr("src", animateURL);
+                    gifImg.attr("class", "gif");
+                    gifDiv.append(gifImg);
+                    $("#gifDisplay").prepend(gifDiv);
+                }
+            });
     });
 
 
